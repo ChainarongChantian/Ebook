@@ -10,7 +10,7 @@ import ebook.Mongo;
 import java.util.Iterator;
 import org.bson.Document;
 public class LoginService {
-    public static boolean AuthorizeLogin(Login lgInput) {
+    public static Object[] AuthorizeLogin(Login lgInput) {
         MongoClient mongo = Mongo.Connector();
         MongoCollection<Document> dbColl = mongo.getDatabase("ebook").getCollection("User");
         FindIterable<Document> iterateDoc = dbColl.find();
@@ -20,9 +20,9 @@ public class LoginService {
           String user = dc.getString("username");
           String pass = dc.getString("password");
           if(lgInput.CheckEqualObjects(user, pass)) {
-              return true;
+              return new Object[]{true,user};
           }
 	}
-        return false;
+        return new Object[]{false};
     }
 }
