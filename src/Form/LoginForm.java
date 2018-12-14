@@ -39,7 +39,7 @@ public class LoginForm extends javax.swing.JFrame {
         btn_register = new javax.swing.JButton();
         btn_login = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -140,6 +140,8 @@ public class LoginForm extends javax.swing.JFrame {
                 Header header = new Header();
                 header.setVisible(true);
                 header.user_name.setText((String)obj[1]);
+                this.setVisible(false);
+
             }
             else {
                 JOptionPane.showMessageDialog(LoginForm.this, "เข้าสู่ระบบ ไม่สำเร็จ username หรือ pssword ไม่ถูกต้อง", "incomplete state", JOptionPane.INFORMATION_MESSAGE);
